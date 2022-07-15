@@ -3,7 +3,7 @@
 <img src="assets/images/projeto-draw-gif.gif" alt="Video Projeto">
 
 > 🔎 Projeto de quadro de desenho para você se divertir desenhando o que quiser. <br>
-🗔 Confira a aplicação: https://klausmorotti.github.io/meu-portfolio/ <br>
+🗔 Confira a aplicação: https://klausmorotti.github.io/draw-canvas/ <br>
 ## :page_facing_up: Explicação
 Gosta de dar uma rabiscada ou demonstrar os dotes artísticos rsrs? Confira o quadro de desenhos desenvolvido com JavaScript para desenhar o que quiser da forma como quiser.
 
@@ -57,7 +57,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 ## 📝 Licença
 
-Este projeto está sob licença. Consulte o arquivo <a href="https://github.com/klausmorotti/meu-portfolio/blob/master/LICENSE">LICENSE</a> para obter mais detalhes.
+Este projeto está sob licença. Consulte o arquivo <a href="https://github.com/klausmorotti/draw-canvas/blob/master/LICENSE">LICENSE</a> para obter mais detalhes.
 
 
 <a href="#top">Volte para o topo</a>
