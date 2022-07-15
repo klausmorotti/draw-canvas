@@ -1,27 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desenhando no Canvas</title>
+    <link rel="shortcut icon" href="assets/images/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-    <h1>Desenhando no Canvas</h1>
 
-    <canvas id="tela" width="800" height="400"></canvas>
+    <main>
+        <h1>Desenhando no Canvas</h1>
 
-    <div class="colorArea">
-        <div data-color="black" style="background-color: black" class="color active"></div>
-        <div data-color="blue" style="background-color: blue" class="color"></div>
-        <div data-color="red" style="background-color: red" class="color"></div>
-        <div data-color="green" style="background-color: green" class="color"></div>
-        <div data-color="yellow" style="background-color: yellow" class="color"></div>
-        <div data-color="gray" style="background-color: gray" class="color"></div>
-    </div>
+        <canvas width="800px" height="400px" class="drawingBoard"></canvas>
 
-    <button class="clear">Limpar Quadro</button>
+        <div class="colorPalette">
+            <div style="background-color: black;" class="color active" data-color="black"></div>
+            <div style="background-color: blue;" class="color" data-color="blue"></div>
+            <div style="background-color: red;" class="color" data-color="red"></div>
+            <div style="background-color: green;" class="color" data-color="green"></div>
+            <div style="background-color: yellow;" class="color" data-color="yellow"></div>
+            <div style="background-color: purple;" class="color" data-color="purple"></div>
+        </div>
+
+        <div class="buttons">
+            <button class="btnEraser"><img src="assets/images/eraser.png" alt="Imagem Borracha" data-cursor="eraser"></button>
+            <button class="btnCleanAll">Limpar Tudo</button>
+            <a href="" class="btnDownload">
+                <img src="assets/images/download.png" alt="Ícone download">
+                <p>Baixar Desenho</p>
+            </a>
+        </div>
+    </main>
+        
 
     <script src="assets/js/script.js"></script>
 </body>

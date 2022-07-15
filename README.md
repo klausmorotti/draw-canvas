@@ -1,6 +1,6 @@
 <h1 align="center">QUADRO DE DESENHO</h1>
 
-<img src="assets/images/projeto-canvas-gif.gif" alt="Video Projeto">
+<img src="assets/images/projeto-draw-gif.gif" alt="Video Projeto">
 
 > 🔎 Projeto de quadro de desenho para você se divertir desenhando o que quiser. <br>
 🗔 Confira a aplicação: https://klausmorotti.github.io/meu-portfolio/ <br>
@@ -26,6 +26,9 @@ O site tem no total 1 página, sendo ela
 :heavy_check_mark: Criando os eventos de mouse (mousedown, mousemove, mouseup) que chamam uma função específica para cada evento. <br>
 :heavy_check_mark: Pegando a posição do mouse quando clicamos na tela para começar a desenhar. <br>
 :heavy_check_mark: Após pega a posição do mouse, criei a etapa que manipula o quadro do canvas para poder criar uma linha (um pixel) movendo-se do ponto inicial até o ponto atual, criando assim o desenho desejado. <br>
+:heavy_check_mark: Criando a função de fazer download do desenho. <br>
+:heavy_check_mark: Criando o botão de borracha para apagar desenhando. <br>
+:heavy_check_mark: Criando a responsividade da página. <br>
 
 ## 🚀 Tecnologias ##
 

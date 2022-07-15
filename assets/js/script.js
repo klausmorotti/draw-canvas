@@ -1,52 +1,65 @@
 // INITIAL DATA
+let canvas = document.querySelector('main .drawingBoard');
+let ctxCanvas = canvas.getContext('2d');
 let currentColor = 'black';
-let colors = document.querySelectorAll('.colorArea .color');
 let canDraw = false;
 let mouseX = 0;
 let mouseY = 0;
-// Selecionando o canvas e criando seu contexto onde faremos tudo
-let screen = document.querySelector('canvas');
-let context = screen.getContext('2d');
-
-
-
+let btnEraser = document.querySelector('.buttons .btnEraser');
+let btnDownload = document.querySelector('.buttons .btnDownload');
 
 // EVENTS
-colors.forEach((color) => {
+btnEraser.addEventListener('click', switchCursor);
+btnDownload.addEventListener('click', downloadDraw);
+
+document.querySelectorAll('.colorPalette .color').forEach((color) => {
     color.addEventListener('click', selectColor);
 })
-document.querySelector('.clear').addEventListener('click', clearScreen);
 
+// Eventos de clique do quadro de desenhos
+canvas.addEventListener('mousedown', mouseDownEvent);
+canvas.addEventListener('mousemove', mouseMoveEvent);
+canvas.addEventListener('mouseup', mouseUpEvent);
 
-/*
-LÓGICA UTILIZADA:
-- Ao clicar no mouse, ative o modo desenho.
-- Ao mover o mouse, se o modo desenho estiver ativado, desenhe.
-- Ao desclicar o mouse, desative o modo desenho.
-*/
-screen.addEventListener('mousedown', mouseDownEvent);
-screen.addEventListener('mousemove', mouseMoveEvent);
-screen.addEventListener('mouseup', mouseUpEvent);
-
-
+// Evento que chama a função de limpar quadro
+document.querySelector('.buttons .btnCleanAll').addEventListener('click', cleanDraw);
 
 // FUNCTIONS
-// Função selecionar cor
-function selectColor(e) {
-    // Pegando a cor selecionada
-    currentColor = e.target.getAttribute('data-color');
 
-    // Adicionando a borda na cor selecionada
-    document.querySelector('.color.active').classList.remove('active');
+// Transformando cursor normal para borracha
+function switchCursor(e) {
+    let cursor = e.target.getAttribute('data-cursor');
+    
+    if ( cursor == 'eraser' ) {
+        e.target.src = '../assets/images/crosshair.png';
+        e.target.setAttribute('data-cursor', 'crosshair');
+        
+    } else {
+        e.target.src = '../assets/images/eraser.png';
+        e.target.setAttribute('data-cursor', 'eraser')
+    }
+}
+
+// Função que faz download do desenho
+function downloadDraw() {
+    btnDownload.download = 'Desenho-canvas.png';
+    btnDownload.href = canvas.toDataURL('image/png');
+}
+
+// Selecionando a cor do pincel
+function selectColor(e) {
+    currentColor = e.target.getAttribute('data-color')
+    
+    document.querySelector('.colorPalette .color.active').classList.remove('active');
     e.target.classList.add('active');
 }
 
-//Função ao clicar no mouse para desenhar
+// Funções de clique na tela de desenho
 function mouseDownEvent(e) {
     canDraw = true;
-    mouseX = e.pageX - screen.offsetLeft;
-    mouseY = e.pageY - screen.offsetTop;
-}
+    mouseX = e.pageX - canvas.offsetLeft;
+    mouseY = e.pageY - canvas.offsetTop;
+}  
 
 function mouseMoveEvent(e) {
     if( canDraw ) {
@@ -58,24 +71,26 @@ function mouseUpEvent() {
     canDraw = false;
 }
 
+// Função que desenha efetivamente
 function draw(x, y) {
-    let pointX = x - screen.offsetLeft;
-    let pointY = y - screen.offsetTop;
+    let pointX = x - canvas.offsetLeft;
+    let pointY = y - canvas.offsetTop;
 
-    context.beginPath();
-    context.lineWidth = 5;
-    context.lineJoin = 'round';
-    context.moveTo(mouseX, mouseY);
-    context.lineTo(pointX, pointY);
-    context.closePath();
-    context.strokeStyle = currentColor;
-    context.stroke();
+    ctxCanvas.beginPath();
+    ctxCanvas.lineWidth = 3;
+    ctxCanvas.lineJoin = 'round';
+    ctxCanvas.moveTo(mouseX, mouseY);
+    ctxCanvas.lineTo(pointX, pointY);
+    ctxCanvas.closePath();
+    ctxCanvas.strokeStyle = currentColor;
+    ctxCanvas.stroke();
 
     mouseX = pointX;
     mouseY = pointY;
 }
 
-function clearScreen() {
-    context.setTransform(1, 0, 0, 1, 0, 0)
-    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+// Função que limpa o quadro
+function cleanDraw() {
+    ctxCanvas.setTransform(1, 0, 0, 1, 0, 0);
+    ctxCanvas.clearRect(0, 0, ctxCanvas.canvas.width, ctxCanvas.canvas.height);
 }

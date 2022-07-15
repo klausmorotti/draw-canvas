@@ -1,48 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:'Poppins';
 }
 
 body {
-    display: flex;
-    min-height: 100vh;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #333;
-    font-family: Arial, Helvetica, sans-serif;
+    user-select:none;
 }
 
-h1 {
-    color: #FFF;
-    margin-bottom: 20px;
+/* Corpo do quadro */
+main {
+    padding:15px;
+    min-height:100vh;
+    height:100%;
+    background-color:#ADD8E6;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+main h1 {
+    color:#DB7093;
+    font-size:35px;
+    font-weight:500;
+    letter-spacing:1px;
+    text-align:center;
+}
+.drawingBoard {
+    margin-top:10px;
+    max-width:800px;
+    width:100%;
+    max-height:500px;
+    height:100%;
+    background-color:#F8F8FF;
+    border:3px solid #FFC0CB;
+    border-radius:10px;
+    cursor:crosshair;
+}
+.colorPalette {
+    max-width:800px;
+    width:100%;
+    height:40px;
+    display:flex;
+}
+.colorPalette .color {
+    flex:1;
+    cursor:pointer;
+}
+.colorPalette .color.active {
+    border:3px solid #FFF;
+}
+.buttons {
+    margin-top:40px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+.buttons button,
+.buttons a {
+    height:55px;
+    padding:10px 30px;
+    background-color:#FFC0CB;
+    border:0;
+    border-radius:5px;
+    font-weight:500;
+    letter-spacing:1px;
+    font-size:15px;
+    cursor:pointer;
+    text-decoration:none;
+    color:#000;
+    
+}
+.buttons button:hover,
+.buttons a:hover {
+    transition:all ease 0.5s;
+    background-color:#DB7093;
+}
+.buttons button img {
+    max-width:30px;
+}
+.buttons button:first-child,
+.buttons button:nth-child(2) {
+    margin-right:10px;
 }
 
-#tela {
-    border: 2px solid #000;
-    background-color: #FFF;
-    cursor: crosshair;
+.buttons .btnDownload {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.buttons .btnDownload img {
+    max-width:20px;
+    margin-right:10px;
 }
 
-.colorArea {
-    width: 800px;
-    display: flex;
-}
-.color {
-    flex: 1;
-    height: 40px;
-    cursor: pointer;
-}
-.color.active {
-    border: 5px solid #FFF;
+
+/* Responsivity */
+@media only screen and ( max-width:450px ) {
+    .buttons {
+        max-width: 450px;
+        flex-wrap:wrap;
+        align-self:center;
+    }
+    .buttons a:last-child {
+        margin-top:10px;
+    }
 }
 
-.clear {
-    border: 1px solid #000;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: #FFF;
-    padding: 10px;
-    margin-top: 20px;
-    cursor: pointer;
-}
