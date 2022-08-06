@@ -29,6 +29,7 @@ O site tem no total 1 página, sendo ela
 :heavy_check_mark: Criando a função de fazer download do desenho. <br>
 :x: Criando o botão de borracha para apagar desenhando. <br>
 :heavy_check_mark: Criando a responsividade da página. <br>
+:x: Projeto finalizado. <br>
 
 
 ## 🚀 Tecnologias ##
